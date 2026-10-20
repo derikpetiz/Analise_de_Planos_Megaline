@@ -42,7 +42,7 @@ O conjunto de dados (`users_behavior.csv`) contém **3.214 registros** e **5 col
 | `mb_used` | `float64` | Tráfego de dados de internet consumido (em MB) |
 | `is_ultra` | `int64` | **Variável Alvo:** `1` se o cliente usa o plano Ultra, `0` se usa o plano Smart |
 
-![Distribuição da Variável Alvo](./images/class_distribution.png)
+![Distribuição da Variável Alvo](class_distribution.png)
 
 > **Distribuição da Base:** Cerca de **69.35%** dos usuários pertencem ao plano Smart (classe 0) e **30.65%** ao plano Ultra (classe 1). Essa proporção serviu de referência para a amostragem estratificada e para a Prova Real (*Sanity Check*).
 
@@ -71,7 +71,7 @@ O conjunto de dados (`users_behavior.csv`) contém **3.214 registros** e **5 col
 | **Floresta Aleatória** | `n_estimators = 40`, `max_depth = 9` | **82.12%** | **Modelo Campeão** |
 | **Regressão Logística** | `max_iter = 1000`, `solver = 'lbfgs'` | 73.87% | Reprovado (< 75%) |
 
-![Acurácia dos Modelos no Conjunto de Validação](./images/model_comparison.png)
+![Acurácia dos Modelos no Conjunto de Validação](model_comparison.png)
 
 ### Avaliação Final no Conjunto de Teste & Prova Real
 
@@ -85,7 +85,7 @@ O conjunto de dados (`users_behavior.csv`) contém **3.214 registros** e **5 col
 
 Analisando a estrutura do modelo **Floresta Aleatória** através do atributo `feature_importances_`, identificamos a relevância de cada variável comportamental na tomada de decisão:
 
-![Importância das Variáveis na Predição do Plano](./images/feature_importance.png)
+![Importância das Variáveis na Predição do Plano](feature_importance.png)
 
 > **Insight Preditivo:** O tráfego de dados (`mb_used`) representa sozinho **37.60%** da relevância relativa do modelo, consolidando-se como o principal fator diferenciador de perfil entre os clientes dos planos Smart e Ultra.
 
