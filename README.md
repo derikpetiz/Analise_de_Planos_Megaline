@@ -13,6 +13,7 @@
 * **Autor:** Derik Petiz
 * **Contexto:** Projeto Prático do Módulo de Introdução ao Aprendizado de Máquina — MBA em Data Science & Artificial Intelligence (TripleTen)
 * **Objetivo:** Construir e comparar modelos de aprendizado de máquina supervisionado para classificar o comportamento de consumo de clientes de telecomunicações e recomendar a migração para planos de telefonia mais adequados.
+* **Repositório Principal:** [GitHub](https://github.com/derikpetiz/Analise_de_Planos_Megaline)
 
 ---
 
@@ -26,6 +27,18 @@ Desenvolver um modelo preditivo de classificação supervisionada capaz de anali
 ### 📐 Critério de Aceite (Métrica de Sucesso)
 * **Métrica Principal:** Acurácia (*Accuracy*).
 * **Meta do Projeto:** Alcançar uma acurácia mínima de **0.75 (75%)** no conjunto de teste não observado.
+
+---
+
+## 📑 Sumário / Índice do Projeto
+
+1. [Estrutura dos Dados](#-estrutura-dos-dados)
+2. [Metodologia e Arquitetura da Solução](#%EF%B8%8F-metodologia-e-arquitetura-da-solu%C3%A7%C3%A3o)
+3. [Resultados e Comparativo dos Modelos](#-resultados-e-comparativo-dos-modelos)
+4. [Importância das Variáveis (Feature Importances)](#%EF%B8%8F-import%C3%A2ncia-das-vari%C3%A1veis-feature-importances)
+5. [Insights e Conclusões de Negócio](#-insights-e-conclus%C3%B5es-de-neg%C3%B3cio)
+6. [Tecnologias Utilizadas](#%EF%B8%8F-tecnologias-utilizadas)
+7. [Como Executar o Projeto](#-como-executar-o-projeto)
 
 ---
 
@@ -77,3 +90,45 @@ O conjunto de dados (`users_behavior.csv`) contém **3.214 registros** e **5 col
 ## 🖼️ Importância das Variáveis (Feature Importances)
 
 Analisando a estrutura da **Floresta Aleatória**, identificamos quais fatores comportamentais têm maior peso preditivo para prever a adesão ao plano **Ultra**:
+
+## Importância Relativa das Features
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ mb_used  ████████████████████████████████████████████████████ (43.2%)        │
+│ minutes  ██████████████████████████                        (24.8%)        │
+│ calls    █████████████████████                             (20.1%)        │
+│ messages ███████████                                       (11.9%)        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+> **Insight Preditivo:** O consumo de internet (`mb_used`) representa sozinho mais de **43%** da tomada de decisão do modelo, sendo o principal fator diferenciador de perfil entre os clientes dos planos Smart e Ultra.
+
+---
+
+## 💡 Insights e Conclusões de Negócio
+
+1. **O Consumo de Internet é o Driver Principal do Upgrade:**
+   * O volume de megabytes consumidos (`mb_used`) é a variável de maior relevância preditiva. Clientes que utilizam a partir de 15 GB/mês apresentam probabilidade significativamente superior de migrar para o plano **Ultra**.
+2. **Uso de Minutos vs. Número de Chamadas:**
+   * Embora fortemente correlacionados, a duração em minutos (`minutes`) traz um sinal ligeiramente mais forte do que a contagem de chamadas (`calls`). Usuários com conversações longas demandam pacotes sem limite rígido.
+3. **Baixa Relevância de SMS:**
+   * O envio de mensagens de texto (`messages`) é o fator de menor impacto na escolha do plano (11.9%), refletindo a tendência moderna de substituição de SMS por aplicativos de mensageria instantânea over-the-top (OTT).
+4. **Viabilidade Técnica e Financeira:**
+   * O ganho de **+11.51%** sobre o baseline e o índice de **80.87% de acurácia** garantem que as campanhas automatizadas de upsell guiadas por este modelo reduzirão custos de marketing ativo, diminuindo contatos indevidos e aumentando a taxa de conversão de migração de plano.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+* **Linguagem:** Python 3.9+
+* **Manipulação de Dados:** Pandas, NumPy
+* **Machine Learning:** Scikit-Learn (`train_test_split`, `DecisionTreeClassifier`, `RandomForestClassifier`, `LogisticRegression`, `DummyClassifier`, `accuracy_score`)
+* **Visualização de Dados:** Matplotlib, Seaborn
+* **Ambiente de Desenvolvimento:** Jupyter Notebook / VS Code
+
+---
+
+## 📂 Como Executar o Projeto
+
+1. Clone o repositório:
+   ```bash
+   git clone [https://github.com/derikpetiz/Analise_de_Planos_Megaline.git](https://github.com/derikpetiz/Analise_de_Planos_Megaline.git)
